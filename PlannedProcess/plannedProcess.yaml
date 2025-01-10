@@ -1,0 +1,57 @@
+id: http://purl.obolibrary.org/obo/OBI_0000011
+name: plannedprocess
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  pmd: https://w3id.org/pmd/co/
+  obo: http://purl.obolibrary.org/obo/
+  obi: http://purl.obolibrary.org/obo/obi.owl/
+  iao: http://purl.obolibrary.org/obo/iao.owl/
+  isk: https://tib.eu/ontologies/isk/
+  time: http://www.w3.org/2006/time/
+  stato: http://purl.obolibrary.org/stato.owl/
+imports:
+  - linkml:types
+#default_range: string
+
+classes:
+  plannedprocess:
+    class_uri: obi:OBI_0000011
+    slots:   ## specified as a list
+      - startingSubProcess
+      - endingSubProcess
+      - componentProcess
+      - precedingProcess
+    id_prefixes:
+  Container:
+    attributes:
+      plannedprocess:
+        multivalued: true
+        inlined_as_list: true
+        range: plannedprocess
+# slots are first-class entities in the metamodel
+# declaring them here allows them to be reused elsewhere
+slots:
+  id:
+    identifier: true
+    required: true
+  startingSubProcess:
+    slot_uri: obi:OBI_0000011
+    required: true
+    description:
+      A process that realizes a plan which is the concretization of a plan specification.
+  endingSubProcess:
+    slot_uri: obi:OBI_0000011
+    required: true
+    description:
+      A process that realizes a plan which is the concretization of a plan specification.
+  componentProcess:
+    slot_uri: obi:OBI_0000011
+    required: true
+    description:
+      A process that realizes a plan which is the concretization of a plan specification.
+  precedingProcess:
+    slot_uri: obi:OBI_0000011
+    required: true
+    description:
+      A process that realizes a plan which is the concretization of a plan specification.

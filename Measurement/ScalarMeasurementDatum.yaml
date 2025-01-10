@@ -1,0 +1,204 @@
+id: https://tib.eu/ontologies/PMD_shapes/ScalarMeasurementDatum
+name: ScalarMeasurementDatum
+created_by: https://orcid.org/0000-0002-8280-0487
+contributors: https://orcid.org/0009-0007-5934-1087
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  pmd: https://w3id.org/pmd/co/
+  obo: http://purl.obolibrary.org/obo/
+  bfo: http://purl.obolibrary.org/obo/bfo.owl/
+  obi: http://purl.obolibrary.org/obo/obi.owl/
+  iao: http://purl.obolibrary.org/obo/iao.owl/
+  isk: https://tib.eu/ontologies/isk/
+  time: http://www.w3.org/2006/time/
+  stato: http://purl.obolibrary.org/stato.owl/
+imports:
+  - linkml:types
+#default_range: string
+
+classes:
+  Scalar Measurement Datum:
+    class_uri: iao:0000414
+    description: A scalar measurement datum is a measurement datum that is composed of two parts, numerals and a unit label.
+    slots:   ## specified as a list
+      - is_about
+      - is_quality_measurement_of
+      - has_value_specification
+      - has_part
+      - has_time
+
+
+  Scalar Value Specification:
+    class_uri: obi:0001931
+    description:
+      A value specification that consists of two parts - a numeral and a unit label
+    slots:
+      - has_specified_numeric_value
+      - has_measurement_unit_label
+      - is_about_object
+      - specifies_value_of
+
+  Confidence Interval:
+    class_uri: stato:0000196
+    description:
+      A confidence interval is a data item which defines an range of values in which a measurement or trial falls corresponding to a given probability.
+    slots:
+      - confidence_level
+      - lower_confidence_limit
+      - upper_confidence_limit
+
+  Temporal Entity:
+    class_uri: time:TemporalEntity
+    description:
+      A temporal interval or instant.
+    slots:
+      - before
+      - after
+
+  objectlabel:
+    class_uri: pmd:Object
+  measurementunitlabel:
+    class_uri: iao:0000003
+  qualitylabel:
+    class_uri: pmd:quality
+  confIntervalLabel:
+    class_uri: stato:0000196
+  confidenceLevelLabel:
+    class_uri: stato:0000561
+  upperConfLimitLabel:
+    class_uri: stato:0000314
+  lowerConfLimitLabel:
+    class_uri: stato:0000315
+  scalarvaluespecLabel:
+    class_uri: obi:0001933
+  timeLabel:
+    class_uri: time:TemporalEntity
+
+  # TODO: annotate that this is a container/root class
+  Container:
+    tree_root: true
+    slots:
+      - scalarmeasurementdatums
+      - scalarvaluespecifications
+
+slots:
+  is_about:
+    slot_uri: iao:0000136
+    range: objectlabel
+    required: true
+    inlined: true
+    description:
+      A discernable, tangible or simulated entity that is processed in a process by a processing node.
+
+  is_quality_measurement_of:
+    slot_uri: iao:0000221
+    range: qualitylabel
+    required: true
+    inlined: true
+    description:
+      specifically dependant continuant of a material entity.
+
+  has_value_specification:
+    slot_uri: obi:0001938
+    range: scalarvaluespecLabel
+    required: true
+    description:
+      A value specification that consists of two parts - a numeral and a unit label.
+
+  has_part:
+    slot_uri: bfo:0000051
+    range: confIntervalLabel
+    #inlined: true
+    description:
+      A confidence interval is a data item which defines an range of values in which a measurement or trial falls corresponding to a given probability.
+
+  has_time:
+    slot_uri: time:hasTime
+    range: timeLabel
+    #inlined: true
+    description:
+      A temporal interval or instant.
+
+  has_specified_numeric_value:
+    range: float
+    #removed limit for minimum_value - temperatures can be negative
+    required: true
+    slot_uri: obi:0001937
+    inlined: true
+    description:
+      numeric value of a quality or datum measured.
+
+  has_measurement_unit_label:
+    range: measurementunitlabel
+    slot_uri: iao:0000039
+    inlined: true
+    description:
+      unit of the scalar value specified.
+
+  is_about_object:
+    range: objectlabel
+    slot_uri: iao:0000136
+    #inlined: true
+    #required: false
+    description:
+      #Replace with definition from PMD - no definition found on PMD
+      #Definition of BFO Material
+      A material entity is an independent continuant that has some portion of matter as proper or improper continuant part.
+
+  specifies_value_of:
+    range: qualitylabel
+    slot_uri: obi:0001927
+    #inlined: true
+    #specifies value of
+    #required: false
+    description:
+      specifically dependant continuant of a material entity.
+
+  confidence_level:
+    range: confidenceLevelLabel
+    slot_uri: bfo:0000051
+    #inlined: true
+    description:
+      level of confidence specified in percentage for the measurement made.
+
+  lower_confidence_limit:
+    range: lowerConfLimitLabel
+    slot_uri: bfo:0000051
+    #inlined: true
+    description:
+      lower confidence limit - lower bound of the confidence level specified for a measurement.
+
+  upper_confidence_limit:
+    range: upperConfLimitLabel
+    slot_uri: bfo:0000051
+    #inlined: true
+    description:
+      upper confidence limit - upper bound of the confidence level specified for a measurement.
+
+  before:
+    range: timeLabel
+    slot_uri: time:before
+    #inlined: true
+    description:
+      The subject is a temporal entity that occurs before the object. If a temporal entity T1 is before another temporal entity T2, then the end of T1 is before the beginning of T2. Thus, before can be considered to be basic to instants and derived for intervals.
+
+  after:
+    range: timeLabel
+    slot_uri: time:after
+    #inlined: true
+    description:
+      The subject is a temporal entity that occurs after the object. If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2.
+
+
+  scalarmeasurementdatums:
+    range: Scalar Measurement Datum
+    #inlined: true
+    inlined_as_list: true
+    multivalued: true
+
+  scalarvaluespecifications:
+    range: Scalar Value Specification
+    #inlined: true
+    inlined_as_list: true
+    multivalued: true

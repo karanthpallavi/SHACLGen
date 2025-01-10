@@ -1,0 +1,46 @@
+id: https://w3id.org/pmd/co/Device
+name: Device
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  pmd: https://w3id.org/pmd/co/
+  obo: http://purl.obolibrary.org/obo/
+  obi: http://purl.obolibrary.org/obo/obi.owl/
+  iao: http://purl.obolibrary.org/obo/iao.owl/
+  isk: https://tib.eu/ontologies/isk/
+  time: http://www.w3.org/2006/time/
+  stato: http://purl.obolibrary.org/stato.owl/
+  bfo: http://purl.obolibrary.org/obo/bfo.owl/
+imports:
+  - linkml:types
+#default_range: string
+
+classes:
+  Device:
+    class_uri: pmd:Device
+    slots:   ## specified as a list
+      - process
+      - function
+    id_prefixes:
+  Container:
+    attributes:
+      Device:
+        multivalued: true
+        inlined_as_list: true
+        range: Device
+# slots are first-class entities in the metamodel
+# declaring them here allows them to be reused elsewhere
+slots:
+  id:
+    identifier: true
+    required: true
+  process:
+    slot_uri: obi:OBI_0000011
+    required: true
+    description:
+      A process that realizes a plan which is the concretization of a plan specification.
+  function:
+    slot_uri: bfo:BFO_0000034
+    required: true
+    description:
+      A function is a disposition that exists in virtue of the bearer’s physical make-up and this physical make-up is something the bearer possesses because it came into being, either through evolution (in the case of natural biological entities) or through intentional design (in the case of artifacts), in order to realize processes of a certain sort.

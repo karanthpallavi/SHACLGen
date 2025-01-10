@@ -1,0 +1,53 @@
+id: https://w3id.org/pmd/co/IngredientSpecificationDatum
+name: IngredientSpecificationDatum
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  pmd: https://w3id.org/pmd/co/
+  obo: http://purl.obolibrary.org/obo/
+  obi: http://purl.obolibrary.org/obo/obi.owl/
+  iao: http://purl.obolibrary.org/obo/iao.owl/
+  isk: https://tib.eu/ontologies/isk/
+  time: http://www.w3.org/2006/time/
+  stato: http://purl.obolibrary.org/stato.owl/
+imports:
+  - linkml:types
+#default_range: string
+
+classes:
+  IngredientSpecificationDatum:
+    class_uri: isk:IngredientSpecificationDatum
+    slots:   ## specified as a list
+      - ingredient
+      - quality
+      - scalar value specification
+    id_prefixes:
+  Container:
+    attributes:
+      Ingredient Specification Datum:
+        multivalued: true
+        inlined_as_list: true
+        range: IngredientSpecificationDatum
+# slots are first-class entities in the metamodel
+# declaring them here allows them to be reused elsewhere
+slots:
+  id:
+    identifier: true
+    required: true
+  ingredient:
+    slot_uri: pmd:Material
+    required: true
+    description:
+      # Place material definition here
+      Substance which is part of ingredients specified in the datum
+  quality:
+    slot_uri: pmd:Quality
+    required: true
+    description:
+      #Place definition here - unable to find in pmd - class Quality
+      Quality being concretized in the setting datum
+  scalar value specification:
+    slot_uri: obi:scalarvaluespecification
+    required: true
+    description:
+      numeric value of a quality or datum measured

@@ -1,0 +1,71 @@
+id: https://tib.eu/ontologies/PMD_shapes/ScalarMeasurementDatum
+name: ScalarMeasurementDatum
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  pmd: https://w3id.org/pmd/co/
+  obo: http://purl.obolibrary.org/obo/
+  obi: http://purl.obolibrary.org/obo/obi.owl/
+  iao: http://purl.obolibrary.org/obo/iao.owl/
+  isk: https://tib.eu/ontologies/isk/
+  time: http://www.w3.org/2006/time/
+  stato: http://purl.obolibrary.org/stato.owl/
+imports:
+  - linkml:types
+#default_range: string
+
+classes:
+  Scalar Measurement Datum:
+    class_uri: iao:IAO_0000414
+    slots:   ## specified as a list
+      - object
+      - quality
+      - value
+      - confidence interval
+      - temporal
+      - created_by
+      - contributors
+    id_prefixes:
+  Container:
+    attributes:
+      Scalar Measurement Datum:
+        multivalued: true
+        inlined_as_list: true
+        range: Scalar Measurement Datum
+# slots are first-class entities in the metamodel
+# declaring them here allows them to be reused elsewhere
+slots:
+  id:
+    identifier: true
+    required: true
+  object:
+    slot_uri: pmd:object
+    required: true
+    description:
+      A discernable, tangible or simulated entity that is processed in a process by a processing node.
+  quality:
+    slot_uri: pmd:quality
+    required: true
+    description:
+      specifically dependant continuant of a material entity
+  value:
+    slot_uri: obi:OBI_0001933
+    required: true
+    description:
+      A value specification that consists of two parts - a numeral and a unit label.
+  confidence interval:
+    slot_uri: stato:STATO_0000196
+    description:
+      A confidence interval is a data item which defines an range of values in which a measurement or trial falls corresponding to a given probability.
+  temporal:
+    slot_uri: time:TemporalEntity
+    description:
+      A temporal interval or instant.
+  created_by:
+    description: ORCID of Creator of the Pattern
+    slot_uri: https://orcid.org/0000-0002-8280-0487
+    multivalued: true
+  contributors:
+    description: ORCID of Contributor of the Pattern
+    slot_uri: https://orcid.org/0009-0007-5934-1087
+    multivalued: true

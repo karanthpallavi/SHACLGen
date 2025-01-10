@@ -1,0 +1,58 @@
+id: https://tib.eu/ontologies/PMD_shapes/ConfidenceInterval
+name: ConfidenceInterval
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  pmd: https://w3id.org/pmd/co/
+  obo: http://purl.obolibrary.org/obo/
+  obi: http://purl.obolibrary.org/obo/obi.owl/
+  iao: http://purl.obolibrary.org/obo/iao.owl/
+  isk: https://tib.eu/ontologies/isk/
+  stato: http://purl.obolibrary.org/stato.owl/
+imports:
+  - linkml:types
+#default_range: string
+
+classes:
+  Confidence Interval:
+    class_uri: stato:STATO_0000196
+    slots:   ## specified as a list
+      - confidence level
+      - lower confidence limit
+      - upper confidence limit
+      - created_by
+      - contributors
+    id_prefixes:
+    ##- ORCID
+# slots are first-class entities in the metamodel
+# declaring them here allows them to be reused elsewhere
+slots:
+  id:
+    identifier: true
+    required: true
+  confidence level:
+    slot_uri: stato:STATO_0000561
+    required: true
+    multivalued: false
+    description:
+      level of confidence specified in percentage for the measurement made
+  lower confidence limit:
+    slot_uri: stato:STATO_0000315
+    required: true
+    multivalued: false
+    description:
+      lower confidence limit - lower bound of the confidence level specified for a measurement
+  upper confidence limit:
+    slot_uri: stato:STATO_0000314
+    required: true
+    multivalued: false
+    description:
+      upper confidence limit - upper bound of the confidence level specified for a measurement
+  created_by:
+    description: ORCID of Creator of the Pattern
+    slot_uri: https://orcid.org/0000-0002-8280-0487
+    multivalued: true
+  contributors:
+    description: ORCID of Contributor of the Pattern
+    slot_uri: https://orcid.org/0009-0007-5934-1087
+    multivalued: true

@@ -1,0 +1,41 @@
+id: https://w3id.org/pmd/co/InstructionSet
+name: InstructionSet
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  pmd: https://w3id.org/pmd/co/
+  obo: http://purl.obolibrary.org/obo/
+  obi: http://purl.obolibrary.org/obo/obi.owl/
+  iao: http://purl.obolibrary.org/obo/iao.owl/
+  isk: https://tib.eu/ontologies/isk/
+  time: http://www.w3.org/2006/time/
+  stato: http://purl.obolibrary.org/stato.owl/
+  bfo: http://purl.obolibrary.org/obo/bfo.owl/
+imports:
+  - linkml:types
+#default_range: string
+
+classes:
+  InstructionSet:
+    class_uri: pmd:InstructionSet
+    slots:   ## specified as a list
+      - Instruction Step
+    id_prefixes:
+  Container:
+    attributes:
+      InstructionSet:
+        multivalued: true
+        inlined_as_list: true
+        range: InstructionSet
+# slots are first-class entities in the metamodel
+# declaring them here allows them to be reused elsewhere
+slots:
+  id:
+    identifier: true
+    required: true
+  Instruction Step:
+    slot_uri: pmd:InstructionStep
+    required: true
+    description:
+      # Replace with definition from PMD
+      Each step in the instruction set part of the mixing recipe

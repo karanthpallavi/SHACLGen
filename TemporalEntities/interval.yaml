@@ -1,0 +1,64 @@
+id: http://www.w3.org/2006/time/Interval
+name: Interval
+created_by: https://orcid.org/0000-0002-8280-0487
+contributors: https://orcid.org/0009-0007-5934-1087
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  pmd: https://w3id.org/pmd/co/
+  isk: https://tib.eu/ontologies/isk/
+  time: http://www.w3.org/2006/time/
+imports:
+  - linkml:types
+classes:
+  interval:
+    class_uri: time:Interval
+    slots:   ## specified as a list
+      - temporal duration
+      - duration
+      - beginning
+      - end
+    id_prefixes:
+  durationLabel:
+    class_uri: time:Duration
+  tempDurationLabel:
+    class_uri: time:TemporalDuration
+  instantLabel:
+    class_uri: time:Instant
+  Container:
+    tree_root: true
+    attributes:
+      Interval:
+        multivalued: true
+        inlined_as_list: true
+        range: interval
+# slots are first-class entities in the metamodel
+# declaring them here allows them to be reused elsewhere
+slots:
+  id:
+    identifier: true
+    required: true
+  temporal duration:
+    range: tempDurationLabel
+    slot_uri: time:hasTemporalDuration
+    required: true
+    description:
+      Duration of a temporal extent
+  duration:
+    range: durationLabel
+    slot_uri: time:hasTemporalDuration
+    required: true
+    description:
+      Duration of a temporal extent expressed as a decimal number scaled by a temporal unit.
+  beginning:
+    range: instantLabel
+    slot_uri: time:hasBeginning
+    required: true
+    description:
+      A temporal entity with zero extent or duration denoting the beginning in an interval.
+  end:
+    range: instantLabel
+    slot_uri: time:hasEnd
+    required: true
+    description:
+      A temporal entity with zero extent or duration denoting the end in an interval

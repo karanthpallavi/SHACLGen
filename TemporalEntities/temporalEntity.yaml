@@ -1,0 +1,46 @@
+id: https://tib.eu/ontologies/PMD_shapes/TemporalEntity
+name: TemporalEntity
+created_by: https://orcid.org/0000-0002-8280-0487
+contributors: https://orcid.org/0009-0007-5934-1087
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  pmd: https://w3id.org/pmd/co/
+  isk: https://tib.eu/ontologies/isk/
+  time: http://www.w3.org/2006/time/
+imports:
+  - linkml:types
+classes:
+  temporal entity:
+    class_uri: time:TemporalEntity
+    slots:   ## specified as a list
+      - before
+      - after
+    id_prefixes:
+  tempEntityLabel:
+    class_uri: time:TemporalEntity
+  Container:
+    tree_root: true
+    attributes:
+      TemporalEntity:
+        multivalued: false
+        inlined_as_list: true
+        range: temporal entity
+# slots are first-class entities in the metamodel
+# declaring them here allows them to be reused elsewhere
+slots:
+  id:
+    identifier: true
+    required: true
+  before:
+    range: tempEntityLabel
+    slot_uri: time:before
+    required: false
+    description:
+      The subject is a temporal entity that occurs before the object. If a temporal entity T1 is before another temporal entity T2, then the end of T1 is before the beginning of T2. Thus, before can be considered to be basic to instants and derived for intervals.
+  after:
+    range: tempEntityLabel
+    slot_uri: time:after
+    required: false
+    description:
+      The subject is a temporal entity that occurs after the object. If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2.

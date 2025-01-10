@@ -1,0 +1,82 @@
+id: https://tib.eu/ontologies/PMD_shapes/ScalarValueSpecification
+name: ScalarValueSpecification
+created_by: https://orcid.org/0000-0002-8280-0487
+contributors: https://orcid.org/0009-0007-5934-1087
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  pmd: https://w3id.org/pmd/co/
+  obo: http://purl.obolibrary.org/obo/
+  obi: http://purl.obolibrary.org/obo/obi.owl/
+  iao: http://purl.obolibrary.org/obo/iao.owl/
+  isk: https://tib.eu/ontologies/isk/
+  rdfs: http://www.w3.org/2000/01/rdf-schema/
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns/
+imports:
+  - linkml:types
+#default_range: string
+
+classes:
+  Scalar Value Specification:
+    class_uri: obi:OBI_0001931
+    slots:   ## specified as a list
+      - specified numeric value
+      - unit
+      #- object
+      #- quality
+      ##- created_by
+      ##- contributors
+    id_prefixes:
+      ##- ORCID
+  #objectlabel:
+    #class_uri: pmd:Object
+  measurementunitlabel:
+    class_uri: iao:IAO_0000003
+  #qualitylabel:
+    #class_uri: pmd:quality
+  #valueLabel:
+    #class_uri: rdfs:value
+  #specNumericValueLabel:
+    #class_uri: obi:OBI_0001937
+# slots are first-class entities in the metamodel
+# declaring them here allows them to be reused elsewhere
+slots:
+  id:
+    identifier: true
+    #required: true
+  specified numeric value:
+    range: float
+    #removed limit for minimum_value - temperatures can be negative
+    required: true
+    slot_uri: obi:OBI_0001937
+    description:
+      numeric value of a quality or datum measured
+  unit:
+    range: measurementunitlabel
+    slot_uri: iao:IAO_0000039
+    #required: true
+    description:
+      unit of the scalar value specified
+  #object:
+    #range: objectlabel
+    #slot_uri: iao:IAO_0000136
+    ##required: false
+    #description:
+      ##Replace with definition from PMD - no definition found on PMD
+      ##Definition of BFO Material
+      #A material entity is an independent continuant that has some portion of matter as proper or improper continuant part.
+  #quality:
+    #range: qualitylabel
+    #slot_uri: obi:OBI_0001927
+    ##specifies value of
+    ##required: false
+    #description:
+      #specifically dependant continuant of a material entity
+  #created_by:
+    #description: ORCID of Creator of the Pattern
+    #slot_uri: https://orcid.org/0000-0002-8280-0487
+    #multivalued: true
+  #contributors:
+    #description: ORCID of Contributor of the Pattern
+    #slot_uri: https://orcid.org/0009-0007-5934-1087
+    #multivalued: true

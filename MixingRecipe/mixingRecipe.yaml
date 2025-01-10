@@ -1,0 +1,62 @@
+id: https://w3id.org/pmd/co/MixingRecipe
+name: MixingRecipe
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  pmd: https://w3id.org/pmd/co/
+  obo: http://purl.obolibrary.org/obo/
+  obi: http://purl.obolibrary.org/obo/obi.owl/
+  iao: http://purl.obolibrary.org/obo/iao.owl/
+  isk: https://tib.eu/ontologies/isk/
+  time: http://www.w3.org/2006/time/
+  stato: http://purl.obolibrary.org/stato.owl/
+  bfo: http://purl.obolibrary.org/obo/bfo.owl/
+imports:
+  - linkml:types
+#default_range: string
+
+classes:
+  MixingRecipe:
+    class_uri: pmd:MixingRecipe
+    slots:   ## specified as a list
+      - objective spec
+      - instruction set
+      - device spec
+      - ingredient spec
+    id_prefixes:
+  Container:
+    attributes:
+      MixingRecipe:
+        multivalued: true
+        inlined_as_list: true
+        range: MixingRecipe
+# slots are first-class entities in the metamodel
+# declaring them here allows them to be reused elsewhere
+slots:
+  id:
+    identifier: true
+    required: true
+  objective spec:
+    slot_uri: pmd:ObjectiveSpecificationSet
+    required: true
+    description:
+      # Replace with actual definition
+      Objective Specification Set is a set of objectives which will be achieved
+  instruction set:
+    slot_uri: pmd:InstructionSet
+    required: true
+    description:
+      # Replace with actual definition
+      Set of instructions in the mixing recipe
+  device spec:
+    slot_uri: pmd:DeviceSpecificationSet
+    required: true
+    description:
+      # Replace with actual definition
+      Set of specifications of devices used in mixing recipe
+  ingredient spec:
+    slot_uri: pmd:IngredientSpecificationSet
+    required: true
+    description:
+      # Replace with actual definition
+      Set of specifications of ingredients used in mixing recipe

@@ -1,0 +1,75 @@
+id: https://w3id.org/pmd/co/InstructionStep
+name: InstructionStep
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  pmd: https://w3id.org/pmd/co/
+  obo: http://purl.obolibrary.org/obo/
+  obi: http://purl.obolibrary.org/obo/obi.owl/
+  iao: http://purl.obolibrary.org/obo/iao.owl/
+  isk: https://tib.eu/ontologies/isk/
+  time: http://www.w3.org/2006/time/
+  stato: http://purl.obolibrary.org/stato.owl/
+  bfo: http://purl.obolibrary.org/obo/bfo.owl/
+imports:
+  - linkml:types
+#default_range: string
+
+classes:
+  InstructionStep:
+    class_uri: pmd:InstructionStep
+    slots:   ## specified as a list
+      - Device Specification
+      - Ingredient Specification
+      - Mixer
+      - Mixing
+      - Material Entity
+      - numeric position
+    id_prefixes:
+  Container:
+    attributes:
+      InstructionStep:
+        multivalued: true
+        inlined_as_list: true
+        range: InstructionStep
+# slots are first-class entities in the metamodel
+# declaring them here allows them to be reused elsewhere
+slots:
+  id:
+    identifier: true
+    required: true
+  Device Specification:
+    slot_uri: pmd:DeviceSpecification
+    required: true
+    description:
+      # Replace with definition from PMD
+      Specification of devices used in mixing instruction step
+  Ingredient Specification:
+    slot_uri: pmd:IngredientSpecification
+    required: true
+    description:
+      # Replace with definition from PMD
+      Specification of ingredients used in mixing instruction step
+  Mixer:
+    slot_uri: pmd:Device
+    required: true
+    description:
+      # Replace with definition from PMD
+      Mixer device used in the instruction step
+  Mixing:
+    slot_uri: pmd:Mixing
+    required: true
+    description:
+      # Replace with definition from PMD
+      Mixing Instance which has this instruction step as part of the recipe
+  Material Entity:
+    slot_uri: pmd:Material
+    required: true
+    description:
+      # Replace with definition from PMD
+      Material used in this instruction step
+  numeric position:
+    range: integer
+    required: true
+    description:
+      Position of the step in instruction set in the recipe

@@ -1,0 +1,41 @@
+id: http://www.w3.org/2006/time/TimePosition
+name: TimePosition
+created_by: https://orcid.org/0000-0002-8280-0487
+contributors: https://orcid.org/0009-0007-5934-1087
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  pmd: https://w3id.org/pmd/co/
+  isk: https://tib.eu/ontologies/isk/
+  time: http://www.w3.org/2006/time/
+imports:
+  - linkml:types
+classes:
+  time position:
+    class_uri: time:TimePosition
+    slots:   ## specified as a list
+      - numeric position
+    id_prefixes:
+  numericPosLabel:
+    class_uri: xsd:decimal
+  Container:
+    tree_root: true
+    attributes:
+      Time Position:
+        multivalued: true
+        inlined_as_list: true
+        range: time position
+# slots are first-class entities in the metamodel
+# declaring them here allows them to be reused elsewhere
+slots:
+  id:
+    identifier: true
+    required: true
+  numeric position:
+    range: numericPosLabel
+    slot_uri: time:numericPosition
+    required: true
+    minimum_value: 1
+    maximum_value: 1
+    description:
+      The (numeric) value indicating position within a temporal coordinate system.

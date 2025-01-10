@@ -1,0 +1,43 @@
+@prefix iao: <http://purl.obolibrary.org/obo/iao.owl/> .
+@prefix obi: <http://purl.obolibrary.org/obo/obi.owl/> .
+@prefix pmd: <http://w3id.org/pmd/co3/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://tib.eu/InSuKa/examples/measurementinfo/:Container> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class iao:scalar_measurement_datum ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 0 ;
+            sh:path <http://tib.eu/InSuKa/examples/measurementinfo/:measurements> ] ;
+    sh:targetClass <http://tib.eu/InSuKa/examples/measurementinfo/:Container> .
+
+iao:scalar_measurement_datum a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype <xsd:string> ;
+            sh:description "object the quality of which is being measured" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path pmd:object ],
+        [ sh:datatype <xsd:string> ;
+            sh:description "measurement datum for a quality of an object at a time" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path pmd:quality ],
+        [ sh:datatype <xsd:string> ;
+            sh:description "value specification of the quality measured of the object" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path obi:scalar_value_specification ] ;
+    sh:targetClass iao:scalar_measurement_datum .
+
+

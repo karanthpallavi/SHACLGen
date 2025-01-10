@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.w3.org/2002/07/owl#"
+        xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+        xmlns:owl="http://www.w3.org/2002/07/owl#"
+        xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+        xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+        xmlns:foaf="http://xmlns.com/foaf/0.1/"
+        xmlns:dc="http://purl.org/dc/elements/1.1/"
+        xmlns:ns3="http://purl.obolibrary.org/obo/"
+        xml:base="http://www.w3.org/2002/07/owl">
+
+
+<Class rdf:about="http://purl.obolibrary.org/obo/OBI_0001931">
+    <rdfs:label>scalar value specification</rdfs:label>
+<rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/OBI_0001933"/>
+<rdfs:subClassOf>
+<Restriction>
+<onProperty rdf:resource="http://purl.obolibrary.org/obo/IAO_0000039"/>
+<minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</minCardinality>
+</Restriction>
+</rdfs:subClassOf>
+<rdfs:subClassOf>
+<Restriction>
+<onProperty rdf:resource="http://purl.obolibrary.org/obo/OBI_0001937"/>
+<minCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</minCardinality>
+</Restriction>
+</rdfs:subClassOf>
+<ns3:IAO_0000115 xml:lang="en">A value specification that consists of two parts: a numeral and a unit label</ns3:IAO_0000115>
+<ns3:IAO_0000117>PERSON:Bjoern Peters</ns3:IAO_0000117>
+<ns3:IAO_0000111>scalar value specification</ns3:IAO_0000111>
+<ns3:IAO_0000114 rdf:resource="http://purl.obolibrary.org/obo/IAO_0000123"/></Class>
+        </rdf:RDF>

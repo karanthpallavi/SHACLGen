@@ -1,0 +1,39 @@
+id: http://www.w3.org/2006/time/TemporalDuration
+name: TemporalDuration
+created_by: https://orcid.org/0000-0002-8280-0487
+contributors: https://orcid.org/0009-0007-5934-1087
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  pmd: https://w3id.org/pmd/co/
+  isk: https://tib.eu/ontologies/isk/
+  time: http://www.w3.org/2006/time/
+imports:
+  - linkml:types
+classes:
+  temporal duration:
+    class_uri: time:TemporalDuration
+    slots:   ## specified as a list
+      - duration
+    id_prefixes:
+  durationLabel:
+    class_uri: xsd:duration
+  Container:
+    tree_root: true
+    attributes:
+      TemporalDuration:
+        multivalued: true
+        inlined_as_list: true
+        range: temporal duration
+# slots are first-class entities in the metamodel
+# declaring them here allows them to be reused elsewhere
+slots:
+  id:
+    identifier: true
+    required: true
+  duration:
+    range: durationLabel
+    slot_uri: time:hasXSDDuration
+    required: true
+    description:
+      Duration of a temporal extent

@@ -1,0 +1,39 @@
+id: http://purl.obolibrary.org/obo/OBI_0000067
+name: evaluantRole
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  pmd: https://w3id.org/pmd/co/
+  obo: http://purl.obolibrary.org/obo/
+  obi: http://purl.obolibrary.org/obo/obi.owl/
+  iao: http://purl.obolibrary.org/obo/iao.owl/
+  isk: https://tib.eu/ontologies/isk/
+  time: http://www.w3.org/2006/time/
+  stato: http://purl.obolibrary.org/stato.owl/
+imports:
+  - linkml:types
+#default_range: string
+
+classes:
+  evaluant role:
+    class_uri: obi:OBI_0000067
+    slots:   ## specified as a list
+      - assay
+    id_prefixes:
+  Container:
+    attributes:
+      evaluant role:
+        multivalued: true
+        inlined_as_list: true
+        range: evaluant role
+# slots are first-class entities in the metamodel
+# declaring them here allows them to be reused elsewhere
+slots:
+  id:
+    identifier: true
+    required: true
+  assay:
+    slot_uri: obi:OBI_0000070
+    required: true
+    description:
+      A planned process that has the objective to produce information about a material entity (the evaluant) by examining it.

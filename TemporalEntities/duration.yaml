@@ -1,0 +1,48 @@
+id: http://www.w3.org/2006/time/duration
+name: duration
+created_by: https://orcid.org/0000-0002-8280-0487
+contributors: https://orcid.org/0009-0007-5934-1087
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  pmd: https://w3id.org/pmd/co/
+  isk: https://tib.eu/ontologies/isk/
+  time: http://www.w3.org/2006/time/
+imports:
+  - linkml:types
+classes:
+  duration:
+    class_uri: time:duration
+    slots:   ## specified as a list
+      - numeric duration
+      - unit type
+    id_prefixes:
+  numericdurationlabel:
+    class_uri: xsd:decimal
+  unitlabel:
+    class_uri: time:unitType
+  Container:
+    tree_root: true
+    attributes:
+      duration:
+        multivalued: true
+        inlined_as_list: true
+        range: duration
+# slots are first-class entities in the metamodel
+# declaring them here allows them to be reused elsewhere
+slots:
+  id:
+    identifier: true
+    required: true
+  numeric duration:
+    range: numericdurationlabel
+    slot_uri: time:numericDuration
+    required: true
+    description:
+      Value of a temporal extent expressed as a number scaled by a temporal unit.
+  unit type:
+    range: unitlabel
+    slot_uri: time:unitType
+    required: true
+    description:
+      The temporal unit which provides the precision of a date-time value or scale of a temporal extent.

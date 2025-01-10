@@ -1,0 +1,49 @@
+@prefix iao: <http://purl.obolibrary.org/obo/iao.owl/> .
+@prefix obi: <http://purl.obolibrary.org/obo/obi.owl/> .
+@prefix pmd: <https://w3id.org/pmd/co/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://tib.eu/ontologies/PMD_shapes/ScalarValueSpecificationShape/:Container> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class obi:OBI_0001931 ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 0 ;
+            sh:path <https://tib.eu/ontologies/PMD_shapes/ScalarValueSpecificationShape/:valuespecifications> ] ;
+    sh:targetClass <https://tib.eu/ontologies/PMD_shapes/ScalarValueSpecificationShape/:Container> .
+
+obi:OBI_0001931 a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property 
+        [ sh:datatype <xsd:float> ;
+            sh:description "numeric value of a quality or datum measured" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:minInclusive 0e+00 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://tib.eu/ontologies/PMD_shapes/ScalarValueSpecificationShape/:specified_numeric_value> ],
+        [ sh:description "unit of the scalar value specified" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path iao:measurement_unit_label ],
+        [ sh:description "A material entity is an independent continuant that has some portion of matter as proper or improper continuant part." ;
+            sh:maxCount 1 ;
+            sh:order 2 ;
+            sh:path pmd:Object ],
+        [ sh:description "specifically dependant continuant of a material entity" ;
+            sh:maxCount 1 ;
+            sh:order 3 ;
+            sh:path pmd:quality ],
+        [ sh:description "ORCID of Creator of the Pattern" ;
+            sh:order 4 ;
+            sh:path <https://orcid.org/0000-0002-8280-0487> ],
+        [ sh:description "ORCID of Contributor of the Pattern" ;
+            sh:order 5 ;
+            sh:path <https://orcid.org/0009-0007-5934-1087> ];
+    sh:targetClass obi:OBI_0001931 .

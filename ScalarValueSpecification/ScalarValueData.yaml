@@ -1,0 +1,9 @@
+valuespecifications:
+    - id: 1
+      quality: mass
+      specified_numeric_value: 33
+      unit: kg
+    - id: 2
+      quality: speed
+      specified_numeric_value: 45
+      unit: rpm

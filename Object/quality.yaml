@@ -1,0 +1,39 @@
+id: https://w3id.org/pmd/co/quality
+name: quality
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  pmd: https://w3id.org/pmd/co/
+  obo: http://purl.obolibrary.org/obo/
+  obi: http://purl.obolibrary.org/obo/obi.owl/
+  iao: http://purl.obolibrary.org/obo/iao.owl/
+  isk: https://tib.eu/ontologies/isk/
+  time: http://www.w3.org/2006/time/
+  stato: http://purl.obolibrary.org/stato.owl/
+imports:
+  - linkml:types
+#default_range: string
+
+classes:
+  quality:
+    class_uri: pmd:quality
+    slots:   ## specified as a list
+      - scalar measurement datum
+    id_prefixes:
+  Container:
+    attributes:
+      quality:
+        multivalued: true
+        inlined_as_list: true
+        range: quality
+# slots are first-class entities in the metamodel
+# declaring them here allows them to be reused elsewhere
+slots:
+  id:
+    identifier: true
+    required: true
+  scalar measurement datum:
+    slot_uri: iao:IAO_0000414
+    required: true
+    description:
+      A scalar measurement datum is a measurement datum that is composed of two parts, numerals and a unit label.

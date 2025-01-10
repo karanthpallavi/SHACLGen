@@ -1,0 +1,26 @@
+@prefix iao: <http://purl.obolibrary.org/obo/iao.owl/> .
+@prefix obi: <http://purl.obolibrary.org/obo/obi.owl/> .
+@prefix pmd: <https://w3id.org/pmd/co/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix stato: <http://purl.obolibrary.org/stato.owl/> .
+
+<https://w3id.org/pmd/co/test> rdf:type owl:Ontology ;
+                               owl:versionIRI <https://w3id.org/pmd/co/test/1.0.0> ;
+                               owl:imports <https://w3id.org/pmd/co> .
+
+#################################################################
+#    Individuals
+#################################################################
+
+<https://w3id.org/pmd/co/test/scalarvaluespecification_speed_rotor_lowerlimit> rdf:type owl:NamedIndividual ,
+                                                                             <http://purl.obolibrary.org/obo/obi.owl/OBI_0001931>   ;
+                                                                    <http://purl.obolibrary.org/obo/iao.owl/IAO_0000136> <https://w3id.org/pmd/co/test/Rotor>;
+                                                                    <http://purl.obolibrary.org/obo/obi.owl/OBI_0001927> <https://w3id.org/pmd/co/test/RotorSpeed>;
+                                                                    <http://purl.obolibrary.org/obo/obi.owl/OBI_0001937> 65^^xsd:float;
+        <http://purl.obolibrary.org/obo/iao.owl/IAO_0000039> <http://qudt.org/vocab/unit/REV-PER-MIN>.
+
+<https://w3id.org/pmd/co/test/scalarvaluespecificationlowerconflimit_speed_rotor> rdf:type owl:NamedIndividual,
+                                                                                           stato:STATO_0000315;
+                                                                                  <http://purl.obolibrary.org/obo/obi.owl/OBI_0001938>  <https://w3id.org/pmd/co/test/scalarvaluespecification_speed_rotor_lowerlimit> .

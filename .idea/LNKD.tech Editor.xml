@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="http://lnkd.tech/editor#BuiltinGlobalGraphs">
+    <option name="disabled">
+      <set>
+        <option value="DC_AM" />
+        <option value="DC_E" />
+        <option value="DC_T" />
+        <option value="DC_TYPE" />
+        <option value="FOAF" />
+        <option value="FOAF_ORG" />
+        <option value="ML_XS" />
+        <option value="OWL2" />
+        <option value="RDF" />
+        <option value="RDFS" />
+        <option value="SHACL" />
+        <option value="SHACL_SHACL" />
+        <option value="SKOS" />
+        <option value="SKOS_ORG" />
+        <option value="SPIN_MODELING" />
+        <option value="SPIN_MODELING_ORG" />
+        <option value="SPIN_SPARQL" />
+        <option value="SPIN_SPARQL_ORG" />
+        <option value="SPIN_STD" />
+        <option value="SPIN_STD_ORG" />
+        <option value="VANN" />
+        <option value="VOAF" />
+        <option value="schemaorg_all_http" />
+        <option value="schemaorg_all_https" />
+      </set>
+    </option>
+  </component>
+  <component name="http://lnkd.tech/editor#GlobalGraphsAssignments">
+    <option name="assignments">
+      <map>
+        <entry key="urn:tag:lnslr.eu,2018:java:eu.lunisolar.lava.rdfvocab.get.lava.LavaCatalog">
+          <value>
+            <map>
+              <entry key="http://www.w3.org/2000/01/rdf-schema">
+                <value>
+                  <set>
+                    <option value="urn:tag:lnkd.tech,2023:digest:sha-256/164A70B28D9AC4B828EEC7D9E4B548A9465A5E2C154D53A142CC5E18566E04EC" />
+                  </set>
+                </value>
+              </entry>
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="http://lnkd.tech/editor#GraphVisibilityConfig">
+    <option name="visibility">
+      <map>
+        <entry key="DOCUMENTATION">
+          <value>
+            <Visibility />
+          </value>
+        </entry>
+        <entry key="GENERAL">
+          <value>
+            <Visibility />
+          </value>
+        </entry>
+        <entry key="SHACL_DATA">
+          <value>
+            <Visibility />
+          </value>
+        </entry>
+        <entry key="SHACL_SHAPES">
+          <value>
+            <Visibility />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

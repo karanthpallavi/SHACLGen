@@ -1,0 +1,30 @@
+id: https://tib.eu/ontologies/isk/scalarvaluespecification
+name: ScalarValueSpecification
+prefixes:
+  linkml: https://w3id.org/linkml/
+  ScalarValueSpecification: https://tib.eu/ontologies/isk/scalarvaluespecification/
+  ORCID: https://orcid.org/
+default_curi_maps:
+  - semweb_context
+imports:
+  - linkml:types
+default_prefix: ScalarValueSpecification
+#default_range: string
+
+classes:
+  ScalarValueSpecification:
+    attributes:
+      id:
+        identifier: true
+      quality:
+        required: true
+        description:
+          measurement datum for a quality of an object at a time
+      unit:
+        required: true
+        description:
+          unit of the scalar value specified
+      specified numeric value:
+        range: float
+        minimum_value: 0.0
+        description: numeric value of a quality or datum measured

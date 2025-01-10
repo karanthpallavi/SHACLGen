@@ -1,0 +1,99 @@
+id: http://www.w3.org/2006/time/GeneralDurationDescription
+name: GeneralDurationDescription
+created_by: https://orcid.org/0000-0002-8280-0487
+contributors: https://orcid.org/0009-0007-5934-1087
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  pmd: https://w3id.org/pmd/co/
+  isk: https://tib.eu/ontologies/isk/
+  time: http://www.w3.org/2006/time/
+imports:
+  - linkml:types
+classes:
+  general duration description:
+    class_uri: time:GeneralDurationDescription
+    slots:   ## specified as a list
+      - TRS
+      - years
+      - months
+      - weeks
+      - days
+      - hours
+      - minutes
+      - seconds
+    id_prefixes:
+  TRSLabel:
+    class_uri: time:hasTRS
+  decimalLabel:
+    class_uri: xsd:decimal
+  Container:
+    tree_root: true
+    attributes:
+      general duration description:
+        multivalued: true
+        inlined_as_list: true
+        range: general duration description
+    # slots are first-class entities in the metamodel
+    # declaring them here allows them to be reused elsewhere
+slots:
+  id:
+    identifier: true
+    required: true
+  TRS:
+    range: TRSLabel
+    slot_uri: time:hasTRS
+    required: true
+    minimum_value: 1
+    maximum_value: 1
+    description:
+      A temporal reference system, such as a temporal coordinate reference system (with an origin, direction, and scale), a calendar-clock combination, or a (possibly hierarchical) ordinal system.
+  years:
+    range: decimalLabel
+    slot_uri: time:years
+    required: true
+    maximum_value: 1
+    description:
+      Years is length of, or element of the length of, a temporal extent expressed in years.
+  months:
+    range: decimalLabel
+    slot_uri: time:months
+    required: true
+    maximum_value: 1
+    description:
+      months is length of, or element of the length of, a temporal extent expressed in months.
+  weeks:
+    range: decimalLabel
+    slot_uri: time:weeks
+    required: true
+    maximum_value: 1
+    description:
+      weeks is length of, or element of the length of, a temporal extent expressed in weeks.
+  days:
+    range: decimalLabel
+    slot_uri: time:days
+    required: true
+    maximum_value: 1
+    description:
+      Days is length of, or element of the length of, a temporal extent expressed in days.
+  hours:
+    range: decimalLabel
+    slot_uri: time:hours
+    required: true
+    maximum_value: 1
+    description:
+      length of, or element of the length of, a temporal extent expressed in hours.
+  minutes:
+    range: decimalLabel
+    slot_uri: time:minutes
+    required: true
+    maximum_value: 1
+    description:
+      length of, or element of the length of, a temporal extent expressed in minutes.
+  seconds:
+    range: decimalLabel
+    slot_uri: time:seconds
+    required: true
+    maximum_value: 1
+    description:
+      length of, or element of the length of, a temporal extent expressed in seconds.

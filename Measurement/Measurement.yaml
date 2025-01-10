@@ -1,0 +1,53 @@
+id: https://tib.eu/ontologies/isk/scalarvaluespecification
+name: ScalarValueSpecification
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  pmd: https://w3id.org/pmd/co/
+  obo: http://purl.obolibrary.org/obo/
+  obi: http://purl.obolibrary.org/obo/obi.owl/
+  iao: http://purl.obolibrary.org/obo/iao.owl/
+  isk: https://tib.eu/ontologies/isk/
+imports:
+  - linkml:types
+#default_range: string
+
+classes:
+  Scalar Measurement Datum:
+    class_uri: iao:scalar_measurement_datum
+    slots:   ## specified as a list
+      - quality
+      - object
+      - value
+     ## - part
+     ## - time
+    id_prefixes:
+      ##- ORCID
+  Container:
+    attributes:
+      measurements:
+        multivalued: true
+        inlined_as_list: true
+        range: Scalar Measurement Datum
+        ##iao:IAO_0000032
+
+# slots are first-class entities in the metamodel
+# declaring them here allows them to be reused elsewhere
+slots:
+  id:
+    identifier: true
+  quality:
+    required: true
+    description:
+      quality of an object at a time
+    slot_uri: pmd:quality
+  object:
+    required: true
+    description:
+      object the quality of which is being measured
+    slot_uri: pmd:object
+  value:
+    required: true
+    description:
+      value specification of the quality measured of the object
+    slot_uri: obi:scalar_value_specification

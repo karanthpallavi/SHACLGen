@@ -1,0 +1,66 @@
+id: https://w3id.org/pmd/co/MassFraction
+name: MassFraction
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  pmd: https://w3id.org/pmd/co/
+  obo: http://purl.obolibrary.org/obo/
+  obi: http://purl.obolibrary.org/obo/obi.owl/
+  iao: http://purl.obolibrary.org/obo/iao.owl/
+  isk: https://tib.eu/ontologies/isk/
+  time: http://www.w3.org/2006/time/
+  stato: http://purl.obolibrary.org/stato.owl/
+imports:
+  - linkml:types
+#default_range: string
+
+classes:
+  MassFraction:
+    class_uri: pmd:MassFraction
+    slots:   ## specified as a list
+      - portion
+      - Object
+      - numerator
+      - denominator
+      - scalar measurement datum
+    id_prefixes:
+  Container:
+    attributes:
+      MassFraction:
+        multivalued: true
+        inlined_as_list: true
+        range: MassFraction
+# slots are first-class entities in the metamodel
+# declaring them here allows them to be reused elsewhere
+slots:
+  id:
+    identifier: true
+    required: true
+  portion:
+    slot_uri: pmd:PortionOfMatter
+    required: true
+    description:
+      # Replace by right definition from PMD
+      Portion of matter for which mass fraction is computed.
+  Object:
+    slot_uri: pmd:Object
+    required: true
+    description:
+      A discernable, tangible or simulated entity that is processed in a process by a processing node.
+  numerator:
+    slot_uri: pmd:mass
+    required: true
+    description:
+      # Replace by definition from PMD
+      Mass of Object
+  denominator:
+    slot_uri: pmd:mass
+    required: true
+    description:
+      # Replace by definition from PMD
+      Mass of Object
+  scalar measurement datum:
+    slot_uri: iao:IAO_0000414
+    required: true
+    description:
+      A scalar measurement datum is a measurement datum that is composed of two parts, numerals and a unit label.

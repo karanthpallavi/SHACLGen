@@ -1,0 +1,69 @@
+id: https://tib.eu/ontologies/PMD_shapes/ScalarValueSpecification
+name: ScalarValueSpecification
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  pmd: https://w3id.org/pmd/co/
+  obo: http://purl.obolibrary.org/obo/
+  obi: http://purl.obolibrary.org/obo/obi.owl/
+  iao: http://purl.obolibrary.org/obo/iao.owl/
+  isk: https://tib.eu/ontologies/isk/
+imports:
+  - linkml:types
+#default_range: string
+
+classes:
+  Scalar Value Specification:
+    class_uri: obi:OBI_0001931
+    slots:   ## specified as a list
+      - specified numeric value
+      - unit
+      - object
+      - quality
+      - created_by
+      - contributors
+    id_prefixes:
+      ##- ORCID
+  Container:
+    attributes:
+      scalarvaluespecification:
+        multivalued: false
+        inlined_as_list: true
+        range: Scalar Value Specification
+# slots are first-class entities in the metamodel
+# declaring them here allows them to be reused elsewhere
+slots:
+  id:
+    identifier: true
+    required: true
+  specified numeric value:
+    range: float
+    minimum_value: 0.0
+    required: true
+    description:
+      numeric value of a quality or datum measured
+  unit:
+    slot_uri: iao:measurement_unit_label
+    required: true
+    description:
+      unit of the scalar value specified
+  object:
+    slot_uri: pmd:Object
+    #required: false
+    description:
+      #Replace with definition from PMD - no definition found on PMD
+      #Definition of BFO Material
+      A material entity is an independent continuant that has some portion of matter as proper or improper continuant part.
+  quality:
+    slot_uri: pmd:quality
+    #required: false
+    description:
+      specifically dependant continuant of a material entity
+  created_by:
+    description: ORCID of Creator of the Pattern
+    slot_uri: https://orcid.org/0000-0002-8280-0487
+    multivalued: true
+  contributors:
+    description: ORCID of Contributor of the Pattern
+    slot_uri: https://orcid.org/0009-0007-5934-1087
+    multivalued: true

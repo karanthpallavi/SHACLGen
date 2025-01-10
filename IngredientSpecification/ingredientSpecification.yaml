@@ -1,0 +1,47 @@
+id: https://w3id.org/pmd/co/IngredientSpecification
+name: IngredientSpecification
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  pmd: https://w3id.org/pmd/co/
+  obo: http://purl.obolibrary.org/obo/
+  obi: http://purl.obolibrary.org/obo/obi.owl/
+  iao: http://purl.obolibrary.org/obo/iao.owl/
+  isk: https://tib.eu/ontologies/isk/
+  time: http://www.w3.org/2006/time/
+  stato: http://purl.obolibrary.org/stato.owl/
+imports:
+  - linkml:types
+#default_range: string
+
+classes:
+  IngredientSpecification:
+    class_uri: pmd:IngredientSpecification
+    slots:   ## specified as a list
+      - ingredient
+      - ingredient specification datum
+    id_prefixes:
+  Container:
+    attributes:
+      Ingredient Specification:
+        multivalued: true
+        inlined_as_list: true
+        range: IngredientSpecification
+# slots are first-class entities in the metamodel
+# declaring them here allows them to be reused elsewhere
+slots:
+  id:
+    identifier: true
+    required: true
+  ingredient:
+    slot_uri: pmd:Material
+    required: true
+    description:
+      # Place material definition here
+      Substance which is part of ingredients specified in the datum
+  ingredient specification datum:
+    slot_uri: pmd:IngredientSpecificationDatum
+    required: true
+    description:
+      # Replace definition here from PMD
+      Data providing Specification of Ingredients

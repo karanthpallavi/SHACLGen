@@ -1,0 +1,90 @@
+id: http://www.w3.org/2006/time/Instant
+name: Instant
+created_by: https://orcid.org/0000-0002-8280-0487
+contributors: https://orcid.org/0009-0007-5934-1087
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  pmd: https://w3id.org/pmd/co/
+  isk: https://tib.eu/ontologies/isk/
+  time: http://www.w3.org/2006/time/
+imports:
+  - linkml:types
+classes:
+  instant:
+    class_uri: time:Instant
+    slots:   ## specified as a list
+      - time position
+      - XSD Date
+      - XSD date TimeStamp
+      - gyear
+      - gyearMonth
+      - date Time
+      #- temporal Reference System
+    id_prefixes:
+  timePositionLabel:
+    class_uri: time:TimePosition
+  dateLabel:
+    class_uri: xsd:date
+  dateTimeStampLabel:
+    class_uri: xsd:dateTimeStamp
+  yearLabel:
+    class_uri: xsd:gYear
+  yearMonthLabel:
+    class_uri: xsd:gYearMonth
+  generalLabel:
+    class_uri: time:GeneralDateTimeDescription
+  Container:
+    tree_root: true
+    attributes:
+      Instant:
+        multivalued: true
+        inlined_as_list: true
+        range: instant
+# slots are first-class entities in the metamodel
+# declaring them here allows them to be reused elsewhere
+slots:
+  id:
+    identifier: true
+    required: true
+  time position:
+    range: timePositionLabel
+    slot_uri: time:inTimePosition
+    required: true
+    description:
+      A temporal position described using either a (nominal) value from an ordinal reference system, or a (numeric) value in a temporal coordinate system.
+  XSD Date:
+    range: dateLabel
+    slot_uri: time:inXSDDate
+    required: true
+    description:
+      Date data type is used to represent date in YYYY-MM-DD format.
+  XSD date TimeStamp:
+    range: dateTimeStampLabel
+    slot_uri: time:inXSDDateTimeStamp
+    required: true
+    description:
+      dateTimeStamp is a data type defined in XML Schema 1.1. It represents a specific date and time in the format CCYY-MM-DDThh:mm:ss.sss.
+  gyear:
+    range: yearLabel
+    slot_uri: time:inXSDgYear
+    required: true
+    description:
+      Position of an instant, expressed using xsd:gYear
+  gyearMonth:
+    range: yearMonthLabel
+    slot_uri: time:inXSDgYearMonth
+    required: true
+    description:
+      Position of an instant, expressed using xsd:gYearMonth
+  date Time:
+    range: generalLabel
+    slot_uri: time:inDateTime
+    required: true
+    description:
+      Position of an instant, expressed using a structured description.
+  #temporal Reference System:
+    #slot_uri: time:TRS
+    #required: true
+    #description:
+      #A temporal reference system, such as a temporal coordinate reference system (with an origin, direction, and scale), a calendar-clock combination, or a (possibly hierarchical) ordinal system.

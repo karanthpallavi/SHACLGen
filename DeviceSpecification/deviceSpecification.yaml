@@ -1,0 +1,54 @@
+id: https://w3id.org/pmd/co/DeviceSpecification
+name: DeviceSpecification
+prefixes:
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  pmd: https://w3id.org/pmd/co/
+  obo: http://purl.obolibrary.org/obo/
+  obi: http://purl.obolibrary.org/obo/obi.owl/
+  iao: http://purl.obolibrary.org/obo/iao.owl/
+  isk: https://tib.eu/ontologies/isk/
+  time: http://www.w3.org/2006/time/
+  stato: http://purl.obolibrary.org/stato.owl/
+imports:
+  - linkml:types
+#default_range: string
+
+classes:
+  Device Specification:
+    class_uri: pmd:DeviceSpecification
+    slots:   ## specified as a list
+      - device
+      - setting datum
+      - device setting
+    id_prefixes:
+  Container:
+    attributes:
+      Device Specification:
+        multivalued: true
+        inlined_as_list: true
+        range: Device Specification
+# slots are first-class entities in the metamodel
+# declaring them here allows them to be reused elsewhere
+slots:
+  id:
+    identifier: true
+    required: true
+  device:
+    slot_uri: pmd:Device
+    required: true
+    description:
+      # Replace definition from PMD
+      apparatus used for a task
+  setting datum:
+    slot_uri: pmd:SettingDatum
+    required: true
+    description:
+      #Place definition here - unable to find in pmd - class Setting Datum
+      setting data of the specification
+  device setting:
+    slot_uri: pmd:DeviceSetting
+    required: true
+    description:
+      #Replace with definition from PMD
+      device setting
