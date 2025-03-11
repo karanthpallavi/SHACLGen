@@ -1,0 +1,172 @@
+@prefix bfo: <http://purl.obolibrary.org/obo/bfo.owl/> .
+@prefix iao: <http://purl.obolibrary.org/obo/iao.owl/> .
+@prefix obi: <http://purl.obolibrary.org/obo/obi.owl/> .
+@prefix pmd: <https://w3id.org/pmd/co/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix stato: <http://purl.obolibrary.org/stato.owl/> .
+@prefix time1: <http://www.w3.org/2006/time/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://tib.eu/ontologies/PMD_shapes/ScalarMeasurementDatum/:Container> a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class obi:0001931 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 1 ;
+            sh:path <https://tib.eu/ontologies/PMD_shapes/ScalarMeasurementDatum/:scalarvaluespecifications> ],
+        [ sh:class iao:0000414 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 0 ;
+            sh:path <https://tib.eu/ontologies/PMD_shapes/ScalarMeasurementDatum/:scalarmeasurementdatums> ] ;
+    sh:targetClass <https://tib.eu/ontologies/PMD_shapes/ScalarMeasurementDatum/:Container> .
+
+iao:0000003 a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass iao:0000003 .
+
+iao:0000414 a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A scalar measurement datum is a measurement datum that is composed of two parts, numerals and a unit label." ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class stato:0000196 ;
+            sh:description "A confidence interval is a data item which defines an range of values in which a measurement or trial falls corresponding to a given probability." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path bfo:0000051 ],
+        [ sh:class pmd:quality ;
+            sh:description "specifically dependant continuant of a material entity." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 1 ;
+            sh:path iao:0000221 ],
+        [ sh:class time1:TemporalEntity ;
+            sh:description "A temporal interval or instant." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path time1:hasTime ],
+        [ sh:class pmd:Object ;
+            sh:description "A discernable, tangible or simulated entity that is processed in a process by a processing node." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 0 ;
+            sh:path iao:0000136 ],
+        [ sh:class obi:0001933 ;
+            sh:description "A value specification that consists of two parts - a numeral and a unit label." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 2 ;
+            sh:path obi:0001938 ] ;
+    sh:targetClass iao:0000414 .
+
+obi:0001931 a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A value specification that consists of two parts - a numeral and a unit label" ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class pmd:quality ;
+            sh:description "specifically dependant continuant of a material entity." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path obi:0001927 ],
+        [ sh:datatype <xsd:float> ;
+            sh:description "numeric value of a quality or datum measured." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path obi:0001937 ],
+        [ sh:class iao:0000003 ;
+            sh:description "unit of the scalar value specified." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 1 ;
+            sh:path iao:0000039 ],
+        [ sh:class pmd:Object ;
+            sh:description "A material entity is an independent continuant that has some portion of matter as proper or improper continuant part." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 2 ;
+            sh:path iao:0000136 ] ;
+    sh:targetClass obi:0001931 .
+
+obi:0001933 a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass obi:0001933 .
+
+stato:0000196 a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A confidence interval is a data item which defines an range of values in which a measurement or trial falls corresponding to a given probability." ;
+    sh:ignoredProperties ( rdf:type ),
+        ( rdf:type ) ;
+    sh:property [ sh:class stato:0000314 ;
+            sh:description "upper confidence limit - upper bound of the confidence level specified for a measurement." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 2 ;
+            sh:path bfo:0000051 ],
+        [ sh:class stato:0000561 ;
+            sh:description "level of confidence specified in percentage for the measurement made." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 0 ;
+            sh:path bfo:0000051 ],
+        [ sh:class stato:0000315 ;
+            sh:description "lower confidence limit - lower bound of the confidence level specified for a measurement." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 1 ;
+            sh:path bfo:0000051 ] ;
+    sh:targetClass stato:0000196 .
+
+stato:0000314 a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass stato:0000314 .
+
+stato:0000315 a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass stato:0000315 .
+
+stato:0000561 a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass stato:0000561 .
+
+pmd:Object a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass pmd:Object .
+
+pmd:quality a sh:NodeShape ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:targetClass pmd:quality .
+
+time1:TemporalEntity a sh:NodeShape ;
+    sh:closed true ;
+    sh:description "A temporal interval or instant." ;
+    sh:ignoredProperties ( rdf:type ),
+        ( rdf:type ) ;
+    sh:property [ sh:class time1:TemporalEntity ;
+            sh:description "The subject is a temporal entity that occurs after the object. If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 1 ;
+            sh:path time1:after ],
+        [ sh:class time1:TemporalEntity ;
+            sh:description "The subject is a temporal entity that occurs before the object. If a temporal entity T1 is before another temporal entity T2, then the end of T1 is before the beginning of T2. Thus, before can be considered to be basic to instants and derived for intervals." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 0 ;
+            sh:path time1:before ] ;
+    sh:targetClass time1:TemporalEntity .
+

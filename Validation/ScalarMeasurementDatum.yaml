@@ -19,7 +19,7 @@ imports:
 
 classes:
   Scalar Measurement Datum:
-    class_uri: http://purl.obolibrary.org/obo/IAO_0000414
+    class_uri: iao:0000414
     description: A scalar measurement datum is a measurement datum that is composed of two parts, numerals and a unit label.
     slots:   ## specified as a list
       - is_about
@@ -30,7 +30,7 @@ classes:
 
 
   Scalar Value Specification:
-    class_uri: http://purl.obolibrary.org/obo/OBI_0001931
+    class_uri: obi:0001931
     description:
       A value specification that consists of two parts - a numeral and a unit label
     slots:
@@ -40,7 +40,7 @@ classes:
       - specifies_value_of
 
   Confidence Interval:
-    class_uri: http://purl.obolibrary.org/obo/STATO_0000196
+    class_uri: stato:0000196
     description:
       A confidence interval is a data item which defines an range of values in which a measurement or trial falls corresponding to a given probability.
     slots:
@@ -49,7 +49,7 @@ classes:
       - upper_confidence_limit
 
   Temporal Entity:
-    class_uri: https://www.w3.org/TR/owl-time/#time:TemporalEntity
+    class_uri: time:TemporalEntity
     description:
       A temporal interval or instant.
     slots:
@@ -57,23 +57,23 @@ classes:
       - after
 
   objectlabel:
-    class_uri: http://purl.obolibrary.org/obo/BFO_0000030
+    class_uri: pmd:Object
   measurementunitlabel:
-    class_uri: http://purl.obolibrary.org/obo/IAO_0000003
+    class_uri: iao:0000003
   qualitylabel:
-    class_uri: http://purl.obolibrary.org/obo/BFO_0000019
+    class_uri: pmd:quality
   confIntervalLabel:
-    class_uri: http://purl.obolibrary.org/obo/STATO_0000196
+    class_uri: stato:0000196
   confidenceLevelLabel:
-    class_uri: http://purl.obolibrary.org/obo/STATO_0000561
+    class_uri: stato:0000561
   upperConfLimitLabel:
-    class_uri: http://purl.obolibrary.org/obo/STATO_0000314
+    class_uri: stato:0000314
   lowerConfLimitLabel:
-    class_uri: http://purl.obolibrary.org/obo/STATO_0000315
+    class_uri: stato:0000315
   scalarvaluespecLabel:
-    class_uri: http://purl.obolibrary.org/obo/OBI_0001933
+    class_uri: obi:0001933
   timeLabel:
-    class_uri: https://www.w3.org/TR/owl-time/#time:TemporalEntity
+    class_uri: time:TemporalEntity
 
   # TODO: annotate that this is a container/root class
   Container:
@@ -84,7 +84,7 @@ classes:
 
 slots:
   is_about:
-    slot_uri: http://purl.obolibrary.org/obo/IAO_0000136
+    slot_uri: iao:0000136
     range: objectlabel
     required: true
     inlined: true
@@ -92,7 +92,7 @@ slots:
       A discernable, tangible or simulated entity that is processed in a process by a processing node.
 
   is_quality_measurement_of:
-    slot_uri: http://purl.obolibrary.org/obo/IAO_0000221
+    slot_uri: iao:0000221
     range: qualitylabel
     required: true
     inlined: true
@@ -100,21 +100,21 @@ slots:
       specifically dependant continuant of a material entity.
 
   has_value_specification:
-    slot_uri: http://purl.obolibrary.org/obo/OBI_0001938
+    slot_uri: obi:0001938
     range: scalarvaluespecLabel
     required: true
     description:
       A value specification that consists of two parts - a numeral and a unit label.
 
   has_part:
-    slot_uri: http://purl.obolibrary.org/obo/BFO_0000051
+    slot_uri: bfo:0000051
     range: confIntervalLabel
     #inlined: true
     description:
       A confidence interval is a data item which defines an range of values in which a measurement or trial falls corresponding to a given probability.
 
   has_time:
-    slot_uri: https://www.w3.org/TR/owl-time/#time:hasTime
+    slot_uri: time:hasTime
     range: timeLabel
     #inlined: true
     description:
@@ -124,21 +124,21 @@ slots:
     range: float
     #removed limit for minimum_value - temperatures can be negative
     required: true
-    slot_uri: http://purl.obolibrary.org/obo/OBI_0001937
+    slot_uri: obi:0001937
     inlined: true
     description:
       numeric value of a quality or datum measured.
 
   has_measurement_unit_label:
     range: measurementunitlabel
-    slot_uri: http://purl.obolibrary.org/obo/IAO_0000039
+    slot_uri: iao:0000039
     inlined: true
     description:
       unit of the scalar value specified.
 
   is_about_object:
     range: objectlabel
-    slot_uri: http://purl.obolibrary.org/obo/IAO_0000136
+    slot_uri: iao:0000136
     #inlined: true
     #required: false
     description:
@@ -148,7 +148,7 @@ slots:
 
   specifies_value_of:
     range: qualitylabel
-    slot_uri: http://purl.obolibrary.org/obo/OBI_0001927
+    slot_uri: obi:0001927
     #inlined: true
     #specifies value of
     #required: false
@@ -157,35 +157,35 @@ slots:
 
   confidence_level:
     range: confidenceLevelLabel
-    slot_uri: http://purl.obolibrary.org/obo/BFO_0000051
+    slot_uri: bfo:0000051
     #inlined: true
     description:
       level of confidence specified in percentage for the measurement made.
 
   lower_confidence_limit:
     range: lowerConfLimitLabel
-    slot_uri: http://purl.obolibrary.org/obo/BFO_0000051
+    slot_uri: bfo:0000051
     #inlined: true
     description:
       lower confidence limit - lower bound of the confidence level specified for a measurement.
 
   upper_confidence_limit:
     range: upperConfLimitLabel
-    slot_uri: http://purl.obolibrary.org/obo/BFO_0000051
+    slot_uri: bfo:0000051
     #inlined: true
     description:
       upper confidence limit - upper bound of the confidence level specified for a measurement.
 
   before:
     range: timeLabel
-    slot_uri: https://www.w3.org/TR/owl-time/#time:before
+    slot_uri: time:before
     #inlined: true
     description:
       The subject is a temporal entity that occurs before the object. If a temporal entity T1 is before another temporal entity T2, then the end of T1 is before the beginning of T2. Thus, before can be considered to be basic to instants and derived for intervals.
 
   after:
     range: timeLabel
-    slot_uri: https://www.w3.org/TR/owl-time/#time:after
+    slot_uri: time:after
     #inlined: true
     description:
       The subject is a temporal entity that occurs after the object. If a temporal entity T1 is after another temporal entity T2, then the beginning of T1 is after the end of T2.

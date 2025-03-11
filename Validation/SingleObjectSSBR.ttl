@@ -1,0 +1,47 @@
+@prefix iao: <http://purl.obolibrary.org/obo/iao.owl/> .
+@prefix ns1: <http://purl.obolibrary.org/obo/> .
+@prefix obi: <http://purl.obolibrary.org/obo/obi.owl/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:RO_0000086 rdfs:label "ro:has quality"^^xsd:string .
+
+iao:IAO_0000136 rdfs:label "iao:is about"^^xsd:string .
+
+iao:IAO_0000221 rdfs:label "iao:is quality measurement of"^^xsd:string .
+
+iao:IAO_0000417 rdfs:label "iao:is quality measured as"^^xsd:string .
+
+obi:OBI_0001927 rdfs:label "obi:specifies value of"^^xsd:string .
+
+obi:OBI_0001937 rdfs:label "obi:has specified numeric value"^^xsd:string .
+
+obi:OBI_0001938 rdfs:label "obi:has value specification"^^xsd:string .
+
+<https://tib.eu/ontologies/isk/411491_7022P_SMD_Cis_Cont> a iao:IAO_0000032 ;
+    rdfs:label "411491_7022P_SMD_Cis_Cont"^^xsd:string ;
+    iao:IAO_0000136 <https://tib.eu/ontologies/isk/411491_7022P> ;
+    iao:IAO_0000221 <https://tib.eu/ontologies/isk/Cis_Cont> ;
+    obi:OBI_0001938 <https://tib.eu/ontologies/isk/411491_7022P_SVS_Cis_Cont> .
+<https://tib.eu/ontologies/isk/411491_7022P> a <https://w3id.org/pmd/co/Object> ;
+    rdfs:label "411491_7022P"^^xsd:string ;
+    ns1:RO_0000086 <https://tib.eu/ontologies/isk/Cis_Cont>,
+        <https://tib.eu/ontologies/isk/Glass_Transition_Temperature>,
+        <https://tib.eu/ontologies/isk/Mooney_Stress_Relaxation>,
+        <https://tib.eu/ontologies/isk/Mooney_Viscosity>,
+        <https://tib.eu/ontologies/isk/Number_Averaged_Molecular_Weight>,
+        <https://tib.eu/ontologies/isk/Styrene_Cont>,
+        <https://tib.eu/ontologies/isk/Trans_Cont>,
+        <https://tib.eu/ontologies/isk/Vinyl_Cont>,
+        <https://tib.eu/ontologies/isk/Weight_Averaged_Molecular_Weight> .
+
+<https://tib.eu/ontologies/isk/Cis_Cont> a <https://w3id.org/pmd/co/Quality> ;
+    rdfs:label "Cis_Cont"^^xsd:string ;
+    iao:IAO_0000417 <https://tib.eu/ontologies/isk/411491_7022P_SMD_Cis_Cont> .
+
+<https://tib.eu/ontologies/isk/411491_7022P_SVS_Cis_Cont> a obi:OBI_0001931 ;
+    rdfs:label "411491_7022P_SVS_Cis_Cont"^^xsd:string ;
+    iao:IAO_0000136 <https://tib.eu/ontologies/isk/411491_7022P> ;
+    obi:OBI_0001927 <https://tib.eu/ontologies/isk/Cis_Cont> ;
+    obi:OBI_0001937 "13.5"^^xsd:float .
+
